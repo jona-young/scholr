@@ -1,10 +1,10 @@
 
 //Add functions, potentially alert dialog window
-const Button = () => {
+const Button = ({name, buttonFunction}) => {
     return (
         <input type="button"
-               onClick = {() => { console.log('button clicked!')}}
-               value="Button" />
+               onClick = {buttonFunction}
+               value={name} />
     )
 }
 

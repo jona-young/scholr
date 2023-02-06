@@ -59,7 +59,7 @@ export const fetchPUT = async (apiRoute, form) => {
         credentials: 'include',
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON>stringify(form)
+        body: JSON.stringify(form)
     })
 
     const json = await data.json();
@@ -89,3 +89,5 @@ export const fetchDELETE = async (apiRoute, id) => {
 
     return json;
 }
+
+// send GET reques to pull all members
