@@ -3,10 +3,10 @@ import { fetchDELETE } from '../API/APIUtils.js';
 import Button from '../Components/button.js';
 
 
-const ListPGTable = ({ data }) => {
+const ListDeliverablesTable = ({ data }) => {
     return (
         <div>
-            <h3>List of Project Groups</h3>
+            <h3>List of Deliverables</h3>
             <table>
                 <thead>
                     <tr>
@@ -24,7 +24,7 @@ const ListPGTable = ({ data }) => {
                             <td>{inst.members}</td>
                             <td><Link to={"/group"}>Project Link</Link></td>
                             <Button name={"Delete Project Group"}
-                                    buttonFunction={fetchDELETE('/api/project-group/' + inst.id)} />
+                                    buttonFunction={fetchDELETE('/api/deliverables/' + inst.id)} />
                         </tr>
                     ))}
                 </tbody>

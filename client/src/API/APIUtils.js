@@ -36,8 +36,8 @@ export const fetchGET = async (apiRoute) => {
 }
 
 // send GET request to backend api to gather single record
-export const fetchGETSINGLE = async (apiRoute, id) => {
-    const data = await fetch(process.env.REACT_APP_API + apiRoute + id, {
+export const fetchGETByID = async (apiRoute) => {
+    const data = await fetch(process.env.REACT_APP_API + apiRoute, {
         credentials: 'include',
         method: 'GET',
         headers: {'Content-Type': 'application/json',}

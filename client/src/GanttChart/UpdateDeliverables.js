@@ -4,7 +4,7 @@ import { fetchGETByID,fetchPUT, fetchDELETE } from '../API/APIUtils.js';
 import PGForm from './PGForm.js';
 import Button from '../Components/button.js';
 
-const UpdatePG = () => {
+const UpdateDeliverables = () => {
     const { id } = useParams()
     const [ form, setForm ] = useState({})
 
@@ -14,7 +14,7 @@ const UpdatePG = () => {
     }
 
     useEffect(() => {
-        const response = fetchGETByID('/api/project-group/' + id);
+        const response = fetchGETByID('/api/deliverables/' + id);
         if (!response.errors)
         {
             setForm(response);
@@ -28,11 +28,11 @@ const UpdatePG = () => {
     return(
         <>
             <h4>Update Project Group</h4>
-            <PGForm onFieldUpdate={updateState} form={form} />
-            <Button name={"Update Project Group"} 
-                    buttonFunction={fetchPUT('/api/project-group/' + form.id, form)} />
-            <Button name={"Delete Project Group"} 
-                    buttonFunction={fetchDELETE('/api/project-group/' + form.id)} />
+            <UpdateDeliverables onFieldUpdate={updateState} form={form} />
+            <Button name={"Update Deliverable"} 
+                    buttonFunction={fetchPUT('/api/deliverables/' + form.id, form)} />
+            <Button name={"Delete Deliverable"} 
+                    buttonFunction={fetchDELETE('/api/deliverables/' + form.id)} />
         </>
     )
 }

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { fetchGET } from '../API/APIUtils.js';
 import ErrorPage from '../Components/ErrorPage.js';
-import ListPGTable from './ListPGTable.js';
+import ListDeliverablesTable from './ListDeliverablesTable.js';
 
-const ListPG = () => {
+const ListDeliverables = () => {
     // useState for project groups
-    const [ groups, setGroups ] = useState([])
+    const [ deliverables, setDeliverables ] = useState([])
     const [ renderPage, setRenderPage ] = useState()
 
     /*---
@@ -29,7 +29,7 @@ const ListPG = () => {
     useEffect(() => {
       if (groups.length > 0)
       {
-        setRenderPage(<ListPGTable data={ groups } />)
+        setRenderPage(<ListDeliverablesTable data={ groups } />)
       }
       else
       {
@@ -41,7 +41,7 @@ const ListPG = () => {
 
     // // useEffect API call for project groups
     // useEffect(()=> {
-    //     fetchGET('project-groups')
+    //     fetchGET('deliverables')
     //     .then((result)=> {
     //         if (result.length == 0)
     //         {
@@ -50,7 +50,7 @@ const ListPG = () => {
     //         else
     //         {
     //             setGroups(result)
-    //             setRenderPage(<ListPGTable data={result} />)
+    //             setRenderPage(<ListDeliverablesTable data={result} />)
 
     //         }
     //     })
@@ -58,7 +58,7 @@ const ListPG = () => {
     //         console.log(err)
 
     //         //remove after you receive api links
-    //         setRenderPage(<ListPGTable data={ groups } />)
+    //         setRenderPage(<ListDeliverablesTable data={ deliverables } />)
 
     //     })
     // },[])
@@ -70,4 +70,4 @@ const ListPG = () => {
     )
 }
 
-export default ListPG;
+export default ListDeliverables;
