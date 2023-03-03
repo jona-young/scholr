@@ -3,26 +3,28 @@ import { fetchDELETE } from '../API/APIUtils.js';
 import Button from '../Components/button.js';
 
 
-const ListPGTable = ({ data }) => {
+const ListCalEventsTable = ({ data }) => {
     return (
         <div>
-            <h3>List of Project Groups</h3>
+            <h3>Calendar Events for [INSERT DATE HERE]</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Course</th>
-                        <th>Members</th>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
                         <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
                     { data.map((inst) => (
                         <tr key={inst.id}>
-                            <td>{inst.name}</td>
-                            <td>{inst.course}</td>
-                            <td>{inst.members}</td>
-                            <td><Link to={"/group"}>Project Link</Link></td>
+                            <td>{inst.event}</td>
+                            <td>{inst.date}</td>
+                            <td>{inst.time}</td>
+                            <td>{inst.description}</td>
+                            <td><Link to={"/event"}>Event</Link></td>
                             <Button name={"Delete Project Group"}
                                     buttonFunction={fetchDELETE('/api/project-group/' + inst.id)} />
                         </tr>
@@ -34,4 +36,4 @@ const ListPGTable = ({ data }) => {
     )
 }
 
-export default ListPGTable;
+export default ListCalEventsTable;

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchGETByID,fetchPUT, fetchDELETE } from '../API/APIUtils.js';
-import PGForm from './PGForm.js';
+import UserForm from './UserForm.js';
 import Button from '../Components/button.js';
 
-const UpdatePG = () => {
+const Profile = () => {
     const { id } = useParams()
     const [ form, setForm ] = useState({})
 
@@ -14,7 +14,7 @@ const UpdatePG = () => {
     }
 
     useEffect(() => {
-        const response = fetchGETByID('/api/project-group/' + id);
+        const response = fetchGETByID('/api/user/' + id);
         if (!response.errors)
         {
             setForm(response);
@@ -27,14 +27,14 @@ const UpdatePG = () => {
 
     return(
         <>
-            <h4>Update Project Group</h4>
-            <PGForm onFieldUpdate={updateState} form={form} />
-            <Button name={"Update Project Group"} 
-                    buttonFunction={fetchPUT('/api/project-group/' + form.id, form)} />
-            <Button name={"Delete Project Group"} 
-                    buttonFunction={fetchDELETE('/api/project-group/' + form.id)} />
+            <h4>Profile</h4>
+            <UserForm onFieldUpdate={updateState} form={form} />
+            <Button name={"Update Profile"} 
+                    buttonFunction={fetchPUT('/api/user/' + form.id, form)} />
+            <Button name={"Delete Account"} 
+                    buttonFunction={fetchDELETE('/api/user/' + form.id)} />
         </>
     )
 }
 
-export default UpdatePG;
+export default Profile;

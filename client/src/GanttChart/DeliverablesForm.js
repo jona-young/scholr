@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const PGForm = ({onFieldUpdate, form}) => {
+const DeliverablesForm = ({onFieldUpdate, form}) => {
     const handleFieldUpdate = (e) => {
         const key = e.target.id;
         const value = e.target.value;
@@ -10,7 +10,7 @@ const PGForm = ({onFieldUpdate, form}) => {
     //implement multi select or add multiple memebers for project group
     return (
         <form>
-            <label for="pg-name">Group Name</label>
+            <label for="pg-name">Deliverable Name</label>
             <input type="text"
                         id="name" 
                         className="form-medium" 
@@ -22,13 +22,8 @@ const PGForm = ({onFieldUpdate, form}) => {
                     className="form-medium"
                     onChange={ handleFieldUpdate }
                     value={form.name} />
-            <label for="members">Members</label>
-            <p>Members1</p>
-            <p>Members2</p>
-            <p>Members3</p>
-            <p>Members4</p>
         </form>
     )
 }
 
-export default PGForm;
+export default DeliverablesForm;

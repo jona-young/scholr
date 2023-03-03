@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchGETByID,fetchPUT, fetchDELETE } from '../API/APIUtils.js';
-import PGForm from './PGForm.js';
+import EventForm from './EventForm.js';
 import Button from '../Components/button.js';
 
-const UpdatePG = () => {
+const UpdateEvent = () => {
     const { id } = useParams()
     const [ form, setForm ] = useState({})
 
@@ -14,7 +14,7 @@ const UpdatePG = () => {
     }
 
     useEffect(() => {
-        const response = fetchGETByID('/api/project-group/' + id);
+        const response = fetchGETByID('/api/calendar-event/' + id);
         if (!response.errors)
         {
             setForm(response);
@@ -27,14 +27,14 @@ const UpdatePG = () => {
 
     return(
         <>
-            <h4>Update Project Group</h4>
-            <PGForm onFieldUpdate={updateState} form={form} />
+            <h4>Update Calendar Event</h4>
+            <EventForm onFieldUpdate={updateState} form={form} />
             <Button name={"Update Project Group"} 
-                    buttonFunction={fetchPUT('/api/project-group/' + form.id, form)} />
+                    buttonFunction={fetchPUT('/api/calendar-event/' + form.id, form)} />
             <Button name={"Delete Project Group"} 
-                    buttonFunction={fetchDELETE('/api/project-group/' + form.id)} />
+                    buttonFunction={fetchDELETE('/api/calendar-event/' + form.id)} />
         </>
     )
 }
 
-export default UpdatePG;
+export default UpdateEvent;

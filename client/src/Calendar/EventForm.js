@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const PGForm = ({onFieldUpdate, form}) => {
+const EventForm = ({onFieldUpdate, form}) => {
     const handleFieldUpdate = (e) => {
         const key = e.target.id;
         const value = e.target.value;
@@ -10,7 +10,7 @@ const PGForm = ({onFieldUpdate, form}) => {
     //implement multi select or add multiple memebers for project group
     return (
         <form>
-            <label for="pg-name">Group Name</label>
+            <label for="event-name">Group Name</label>
             <input type="text"
                         id="name" 
                         className="form-medium" 
@@ -31,4 +31,4 @@ const PGForm = ({onFieldUpdate, form}) => {
     )
 }
 
-export default PGForm;
+export default EventForm;

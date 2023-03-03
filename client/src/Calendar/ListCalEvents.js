@@ -1,35 +1,38 @@
 import { useEffect, useState } from 'react';
 import { fetchGET } from '../API/APIUtils.js';
 import ErrorPage from '../Components/ErrorPage.js';
-import ListPGTable from './ListPGTable.js';
+import ListCalEventsTable from './ListCalEventsTable';
 
-const ListPG = () => {
+const ListCalEvents = () => {
     // useState for project groups
-    const [ groups, setGroups ] = useState([])
+    const [ events, setEvents ] = useState([])
     const [ renderPage, setRenderPage ] = useState()
 
     /*---
     DELETE AFTER API LINKS SETUP ON THE BACKEND
     ---- */
     useEffect(() => {
-        setGroups([{id: "11111",
-                  name: "projgroup 1", 
-                  course: "FPOP101",
-                  members: ["Cardi B", "Nicki Minaj", "Lizzo", "Aerosmith"]},
+        setEvents([{id: "11111",
+                  event: "projgroup 1", 
+                  date: "FPOP101",
+                  time: "FPOP101",
+                  description: "FPOP101"},
                 {id: "22222",
-                  name: "projgroup 2", 
-                  course: "VIBE420",
-                  members: ["DJ Khaled", "Sean Paul", "Kahlid", "Bon Jovi"]},
+                  event: "projgroup 1", 
+                  date: "FPOP101",
+                  time: "FPOP101",
+                  description: "FPOP101"},
                 {id: "33333",
-                  name: "projgroup 3", 
-                  course: "SAD777",
-                  members: ["Billie Eilish", "Lewis Capaldi", "Sam Smith", "Marshmallo"]},])
+                  event: "projgroup 1", 
+                  date: "FPOP101",
+                  time: "FPOP101",
+                  description: "FPOP101"}])
     }, [])
 
     useEffect(() => {
-      if (groups.length > 0)
+      if (events.length > 0)
       {
-        setRenderPage(<ListPGTable data={ groups } />)
+        setRenderPage(<ListCalEventsTable data={ events } />)
       }
       else
       {
@@ -39,9 +42,10 @@ const ListPG = () => {
 
 
 
-    // // useEffect API call for project groups
+    // // useEffect API call for project groups HAVE TO CHANGE BASED ON INDIVIDUAL DATES
+    // // BASED OFF ID, REFACTOR TO ALLOW THIS
     // useEffect(()=> {
-    //     fetchGET('project-groups')
+    //     fetchGET('calendar-events')
     //     .then((result)=> {
     //         if (result.length == 0)
     //         {
@@ -50,7 +54,7 @@ const ListPG = () => {
     //         else
     //         {
     //             setGroups(result)
-    //             setRenderPage(<ListPGTable data={result} />)
+    //             setRenderPage(<ListCalEventsTable data={events} />)
 
     //         }
     //     })
@@ -70,4 +74,4 @@ const ListPG = () => {
     )
 }
 
-export default ListPG;
+export default ListCalEvents;

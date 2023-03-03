@@ -1,18 +1,26 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import NoProjectGroup from './NoProjectGroup.js';
-
+import Button from '../Components/button.js'; 
+import { fetchPOST } from '../API/APIUtils.js';
+import GroupChat from '../GroupChat/GroupChat.js';
 
 const ProjectGroup = ({ data }) => {
     // useState for chat responses
     // under the assumption we only receive new messages to the client as an array
-    const [ messages, setMessages ] = useState([{}])
+    const [ chat, setChat ] = useState([{}])
+    const [ userReply, setUserReply ] = useState("")
+
+    // update state function of form
+    const updateState = (e) => {
+        const value = e.target.value;
+        setUserReply(value)
+    }
 
     /*
     DELETE AFTER API IMPLEMENTATION
     */
     useEffect(() => {
-        setMessages([{id: "11111",
+        setChat([{id: "11111",
                         name: "Cardi B", 
                         message: "Why don't we all introduce ourselves?",},
                     {id: "22222",
@@ -23,17 +31,18 @@ const ProjectGroup = ({ data }) => {
                         message: "It's me, hi. I'm the problem it's me",}])
     },[])
 
+    const fetchDummyPOST = () => {
+        setChat([...chat,{id:'4242424',
+                            name: "J Money",
+                            message: userReply}])
+    }
+
      
     // useEffect connection to backend implementation of Socket.io
     // environment variable points to backend localhost:4000/api
     // may need to provide link without /api on implementation
 
-    // useEffect(() => {
-    //     const socket = socketIOClient(process.env.REACT_APP_API)
-    //     socket.on("FromAPI", data => {
-    //         setMessages([...messages, data])
-    //     })
-    // },[])
+ 
 
     // Group chat container CSS Grid
     //   Group Chat messages
@@ -41,14 +50,14 @@ const ProjectGroup = ({ data }) => {
     //   
 
     return(
-        <div className="main-pane project-group">
-            <div id="chat-container">
-                { messages.map((msg) => (
-                    <div>
-                        <h5>{ msg.name }</h5>
-                        <span>{ msg.message }</span>
-                    </div>
-                ))}
+        <div className="main-pane content-pane">
+            <GroupChat chat={ chat } />
+            <div>
+            <input type="text" 
+                    onChange={ updateState }
+                    placeholder="Type your message..."></input>
+            <Button name={"Create Project Group"} 
+                    buttonFunction={fetchDummyPOST} />
             </div>
         </div>
     )

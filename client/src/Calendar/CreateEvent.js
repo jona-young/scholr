@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import PGForm from './PGForm.js'
+import EventForm from './EventForm.js'
 import Button from '../Components/button.js'
 import {fetchPOST} from '../API/APIUtils.js'
 
-const CreatePG = () => {
+const CreateEvent = () => {
     const [ form, setForm ] = useState({});
 
     // update state function of form
@@ -13,13 +13,13 @@ const CreatePG = () => {
 
     return(
         <>
-            <h4>Create Project Group</h4>
-            <PGForm onFieldUpdate={updateState} form={form} />
-            <Button name={"Create Project Group"} 
-                    buttonFunction={fetchPOST('/api/project-group', form)} />
+            <h4>Create Calendar Event</h4>
+            <EventForm onFieldUpdate={updateState} form={form} />
+            <Button name={"Create Calendar Event"} 
+                    buttonFunction={fetchPOST('/api/calendar-event', form)} />
         </>
 
     )
 }
 
-export default CreatePG;
+export default CreateEvent;

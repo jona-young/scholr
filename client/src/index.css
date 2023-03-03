@@ -8,11 +8,12 @@ div {
 /* --------------------------- */
 /* --- CSS GRID LAYOUT */
 /* --------------------------- */
+
+/* GENERAL LAYOUT */
 #grid-container {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 35px 25% 25% 25%;
 }
-
 
 #header {
   grid-column: 1 / 5;
@@ -32,8 +33,128 @@ div {
   grid-column: 2 / 5;
   grid-row: 2;
 }
+.sub-pane {
+  grid-column: 1 / 5;
+  grid-row: 1;
+}
 
 #chat-container {
+  display: flex;
+  flex-direction: column;
+  grid-row: 2;
+}
+
+/* CALENDAR LAYOUT */
+
+#calendar-container {
+  grid-column: 2 / 5;
+  grid-row: 2;
+
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17% 17% 17% ;
+  grid-template-rows: 11.6% 17.6% 17.6% 17.6% 17.6% 17.6% ;
+}
+
+#cal-monday {
+  background: red;
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+#cal-tuesday {
+  background: orange;
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+#cal-wednesday {
+  background: yellow;
+  grid-column: 3 / 4;
+  grid-row: 1;
+}
+
+#cal-thursday {
+  background: greenyellow;
+  grid-column: 4 / 5;
+  grid-row: 1;
+}
+
+#cal-friday {
+  background: blue;
+  grid-column: 5 / 6;
+  grid-row: 1;
+}
+
+#cal-saturday {
+  background: purple;
+  grid-column: 6 / 7;
+  grid-row: 1;
+}
+
+#cal-sunday {
+  background: pink;
+  grid-column: 7 / 8;
+  grid-row: 1;
+}
+
+.cal-col-1 {
+  grid-column: 1 / 2;
+}
+
+.cal-col-2 {
+  grid-column: 2 / 3;
+}
+
+.cal-col-3 {
+  grid-column: 3 / 4;
+}
+
+.cal-col-4 {
+  grid-column: 4 / 5;
+}
+
+.cal-col-5 {
+  grid-column: 5 / 6;
+}
+
+.cal-col-6 {
+  grid-column: 6 / 7;
+}
+
+.cal-col-7 {
+  grid-column: 7 / 8;
+}
+
+.cal-row-2 {
+  grid-row: 2;
+  background: orange;
+}
+
+.cal-row-3 {
+  grid-row: 3;
+  background: yellowgreen;
+}
+
+.cal-row-4 {
+  grid-row: 4;
+  background: turquoise;
+}
+
+.cal-row-5 {
+  grid-row: 5;
+  background:sienna
+}
+
+.cal-row-6 {
+  grid-row: 6;
+  background:yellow;
+}
+
+/* GANTT CHART LAYOUT */
+#deliverables-container {
+  grid-column: 2 / 5;
+  grid-row: 2;
+
   display: flex;
   flex-direction: column;
 }
@@ -57,16 +178,18 @@ div {
 
 .site-side-menu {
   min-height:200px;
-  min-width: 50px;
 }
 
 .navbar {
   height: 100%;
+  width: 35px;
   background: #1F4388;
+  margin:0;
+  padding:0;
 }
 
 .menu-bars {
-  margin-left: 2%;
+  margin-left: 25%;
   font-size: 24px;
   font-weight: 700;
   color: white;
@@ -129,10 +252,44 @@ navbar-toggle {
 /* --- PROJECT GROUP SECTION   */
 /* --------------------------- */
 
-.list-projectgroups {
+.list-page {
   background: darkgray;
 }
 
-.project-group {
+.content-pane {
   background: darkgray;
+}
+
+.chat-name {
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
+.chat-message {
+  margin-bottom: 5%;
+}
+
+/* --------------------------- */
+/* --- CALENDAR SECTION -----  */
+/* --------------------------- */
+
+.cal-block {
+  font-weight: bold;
+}
+
+
+.deliverable {
+  margin-left: 5%;
+}
+
+.progress-bar {
+  height:15px;
+  background: red;
+  border: 2px solid black;
+  margin-left: 5%
+
+}
+
+.subdeliverable {
+  margin-left: 10%;
 }

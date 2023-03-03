@@ -18,10 +18,10 @@ const SideMenu = () => {
                 <ul className="nav-menu-items" onClick={ showNavbar }>
                     <li className="nav-text"><Link to="#" className="menu-bars">X</Link></li>
                     <li className="nav-text"><Link to={"/"}>Home</Link></li>
-                    <li className="nav-text"><Link to={"login"}>Profile</Link></li>
+                    <li className="nav-text"><Link to={"profile"}>Profile</Link></li>
                     <li className="nav-text"><Link to={"project-group"}>Project Group</Link></li>
-                    <li className="nav-text"><Link to={"members"}>Calendar</Link></li>
-                    <li className="nav-text"><Link to={"member-create"}>Deliverables</Link></li>
+                    <li className="nav-text"><Link to={"calendar"}>Calendar</Link></li>
+                    <li className="nav-text"><Link to={"deliverables"}>Deliverables</Link></li>
                     <li className="nav-text"><Link to={"infraction-create"}>Log History</Link></li>
                 </ul>
             </nav>

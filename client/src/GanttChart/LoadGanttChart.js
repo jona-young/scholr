@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ErrorPage from '../Components/ErrorPage.js';
-import ProjectGroup from './ProjectGroup.js';
+import GanttChart from './GanttChart.js';
 
 
-const LoadProjectGroup = ({ data }) => {
+const LoadGanttChart = ({ data }) => {
     const [ renderPage, setRenderPage ] = useState()
 
     // useState for individual project group data
@@ -15,9 +15,9 @@ const LoadProjectGroup = ({ data }) => {
         // }
         // else
         // {
-        //     setRenderPage(<ProjectGroup/>)
+        //     setRenderPage(<GanttChart/>)
         // }
-        setRenderPage(<ProjectGroup data={data} />)
+        setRenderPage(<GanttChart data={data} />)
 
     },[])
 
@@ -35,4 +35,4 @@ const LoadProjectGroup = ({ data }) => {
     )
 }
 
-export default LoadProjectGroup;
+export default LoadGanttChart;
