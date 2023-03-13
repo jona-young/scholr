@@ -16,7 +16,8 @@ const CreatePG = () => {
             <h4>Create Project Group</h4>
             <PGForm onFieldUpdate={updateState} form={form} />
             <Button name={"Create Project Group"} 
-                    buttonFunction={fetchPOST('/api/project-group', form)} />
+                    buttonFunction={fetchPOST('/api/project-group', form)}
+                    className="profile-updatebtn" />
         </>
 
     )
