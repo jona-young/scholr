@@ -22,7 +22,6 @@ const SideMenu = () => {
                     <li className="nav-text"><Link to={"project-group"}>Project Group</Link></li>
                     <li className="nav-text"><Link to={"calendar"}>Calendar</Link></li>
                     <li className="nav-text"><Link to={"deliverables"}>Deliverables</Link></li>
-                    <li className="nav-text"><Link to={"infraction-create"}>Log History</Link></li>
                 </ul>
             </nav>
         </div>

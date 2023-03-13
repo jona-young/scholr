@@ -7,7 +7,7 @@ import DeliverableBlocks from './DeliverableBlocks.js';
 const GanttChart = ({ data }) => {
     // useState for chat responses
     // under the assumption we only receive new messages to the client as an array
-    const [ deliverables, setDeliverables ] = useState([{}])
+    const [ deliverables, setDeliverables ] = useState([])
 
     // update state function of form
     const updateState = (e) => {

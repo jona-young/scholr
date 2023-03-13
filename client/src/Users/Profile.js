@@ -26,14 +26,16 @@ const Profile = () => {
     },[])
 
     return(
-        <>
-            <h4>Profile</h4>
+        <div id="profile-container" className="profile">
+            <h2 className="profile-heading">Profile</h2>
             <UserForm onFieldUpdate={updateState} form={form} />
             <Button name={"Update Profile"} 
-                    buttonFunction={fetchPUT('/api/user/' + form.id, form)} />
+                    buttonFunction={fetchPUT('/api/user/' + form.id, form)}
+                    classname="profile-updatebtn" />
             <Button name={"Delete Account"} 
-                    buttonFunction={fetchDELETE('/api/user/' + form.id)} />
-        </>
+                    buttonFunction={fetchDELETE('/api/user/' + form.id)} 
+                    classname="profile-deletebtn" />
+        </div>
     )
 }
 

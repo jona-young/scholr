@@ -5,34 +5,37 @@ import Button from '../Components/button.js';
 
 const ListCalEventsTable = ({ data }) => {
     return (
-        <div>
+        <>
             <h3>Calendar Events for [INSERT DATE HERE]</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Event</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Description</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { data.map((inst) => (
-                        <tr key={inst.id}>
-                            <td>{inst.event}</td>
-                            <td>{inst.date}</td>
-                            <td>{inst.time}</td>
-                            <td>{inst.description}</td>
-                            <td><Link to={"/event"}>Event</Link></td>
-                            <Button name={"Delete Project Group"}
-                                    buttonFunction={fetchDELETE('/api/project-group/' + inst.id)} />
-                        </tr>
-                    ))}
-                </tbody>
+            <div className="list-container">
+                { data.map((inst) => (
+                        <Link to={"/event"} key={inst.id}
+                             className="list-card">
+                            <div>
+                                <b>Event</b>
+                                {inst.event}
+                            </div>
+                            <div>
+                                <b>Date</b>
+                                {inst.date}
+                            </div>
+                            <div>
+                                <b>Time</b>
+                                {inst.time}
+                            </div>
+                            <div>
+                                <b>Description</b>
+                                {inst.description}
+                            </div>
+                            <div>
+                                <Button name={"Delete Project Group"}
+                                    buttonFunction={fetchDELETE('api/event/' + inst.id)} />
+                            </div>
 
-            </table>
-        </div>
+                        </Link>
+                ))}
+          </div>
+        </>
     )
 }
 
