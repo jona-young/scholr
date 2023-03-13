@@ -2,7 +2,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Layouts/Header.js';
 import SideMenu from './Layouts/SideMenu.js';
-import Footer from './Layouts/Footer.js';
 import ListPG from './ProjectGroup/ListPG.js';
 import CreatePG from './ProjectGroup/CreatePG.js';
 import LoadProjectGroup from './ProjectGroup/LoadProjectGroup.js';
@@ -45,9 +44,7 @@ function App() {
             <Route path="deliverables" element={<GanttChart />} />
             <Route path="create-deliverable" element={<CreateDeliverable />} />
             <Route path="update-pg/:id" element={<UpdatePG />} />
-
           </Routes>
-          <Footer />
       </BrowserRouter>
     </div>
   );
